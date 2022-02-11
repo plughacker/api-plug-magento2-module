@@ -1,5 +1,5 @@
 {
-    "name": "plughacker/api-plug-magento2-module",
+    "name": "plughacker/magento2-api-module",
     "license": "MIT",
     "version": "1.0.0",
     "type": "magento2-module",
