@@ -1,9 +1,9 @@
 {
-    "name": "plughacker/magento2-api-module",
+    "name": "plughacker/magento2-api",
     "license": "MIT",
     "version": "1.0.0",
     "type": "magento2-module",
-    "description": "Magento 2 Module Core Plug",
+    "description": "Magento 2 Plug API",
     "autoload": {
         "files": [
             "registration.php"
