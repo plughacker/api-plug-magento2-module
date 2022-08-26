@@ -21,18 +21,18 @@ class GetPixTransactionResponse extends GetTransactionResponse implements JsonSe
     /**
      * @todo Write general description for this property
      * @required
-     * @maps qr_code
-     * @var string $qrCode public property
+     * @maps qr_code_data
+     * @var string $qrCodeData public property
      */
-    public $qrCode;
+    public $qrCodeData;
 
     /**
      * @todo Write general description for this property
      * @required
-     * @maps qr_code_url
-     * @var string $qrCodeUrl public property
+     * @maps qrCodeImageUrl
+     * @var string $qrCodeImageUrl public property
      */
-    public $qrCodeUrl;
+    public $qrCodeImageUrl;
 
     /**
      * @todo Write general description for this property
@@ -53,16 +53,16 @@ class GetPixTransactionResponse extends GetTransactionResponse implements JsonSe
 
     /**
      * Constructor to set initial or default values of member properties
-     * @param string    $qrCode                Initialization value for $this->qrCode
-     * @param string    $qrCodeUrl             Initialization value for $this->qrCodeUrl
+     * @param string    $qrCodeData                Initialization value for $this->qrCodeData
+     * @param string    $qrCodeImageUrl             Initialization value for $this->qrCodeImageUrl
      * @param \DateTime $expiresAt             Initialization value for $this->expiresAt
      * @param array     $additionalInformation Initialization value for $this->additionalInformation
      */
     public function __construct()
     {
         if (4 == func_num_args()) {
-            $this->qrCode                = func_get_arg(0);
-            $this->qrCodeUrl             = func_get_arg(1);
+            $this->qrCodeData                = func_get_arg(0);
+            $this->qrCodeImageUrl             = func_get_arg(1);
             $this->expiresAt             = func_get_arg(2);
             $this->additionalInformation = func_get_arg(3);
         }
@@ -75,8 +75,8 @@ class GetPixTransactionResponse extends GetTransactionResponse implements JsonSe
     public function jsonSerialize()
     {
         $json = array();
-        $json['qr_code']                = $this->qrCode;
-        $json['qr_code_url']            = $this->qrCodeUrl;
+        $json['qr_code_data']                = $this->qrCodeData;
+        $json['qr_code_image_url']            = $this->qrCodeImageUrl;
         $json['expires_at']             = DateTimeHelper::toRfc3339DateTime($this->expiresAt);
         $json['additional_information'] = $this->additionalInformation;
         $json = array_merge($json, parent::jsonSerialize());

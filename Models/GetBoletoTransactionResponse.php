@@ -81,10 +81,10 @@ class GetBoletoTransactionResponse extends GetTransactionResponse implements Jso
     /**
      * @todo Write general description for this property
      * @required
-     * @maps qr_code
-     * @var string $qrCode public property
+     * @maps qr_code_data
+     * @var string $qrCodeData public property
      */
-    public $qrCode;
+    public $qrCodeData;
 
     /**
      * @todo Write general description for this property
@@ -149,7 +149,7 @@ class GetBoletoTransactionResponse extends GetTransactionResponse implements Jso
      * @param string                     $instructions   Initialization value for $this->instructions
      * @param GetBillingAddressResponse  $billingAddress Initialization value for $this->billingAddress
      * @param \DateTime                  $dueAt          Initialization value for $this->dueAt
-     * @param string                     $qrCode         Initialization value for $this->qrCode
+     * @param string                     $qrCodeData     Initialization value for $this->qrCodeData
      * @param string                     $line           Initialization value for $this->line
      * @param string                     $pdfPassword    Initialization value for $this->pdfPassword
      * @param string                     $pdf            Initialization value for $this->pdf
@@ -169,7 +169,7 @@ class GetBoletoTransactionResponse extends GetTransactionResponse implements Jso
             $this->instructions   = func_get_arg(5);
             $this->billingAddress = func_get_arg(6);
             $this->dueAt          = func_get_arg(7);
-            $this->qrCode         = func_get_arg(8);
+            $this->qrCodeData     = func_get_arg(8);
             $this->line           = func_get_arg(9);
             $this->pdfPassword    = func_get_arg(10);
             $this->pdf            = func_get_arg(11);
@@ -196,7 +196,7 @@ class GetBoletoTransactionResponse extends GetTransactionResponse implements Jso
         $json['billing_address'] = $this->billingAddress;
         $json['due_at']          = isset($this->dueAt) ?
             DateTimeHelper::toRfc3339DateTime($this->dueAt) : null;
-        $json['qr_code']         = $this->qrCode;
+        $json['qr_code_data']    = $this->qrCodeData;
         $json['line']            = $this->line;
         $json['pdf_password']    = $this->pdfPassword;
         $json['pdf']             = $this->pdf;
