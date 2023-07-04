@@ -175,7 +175,7 @@ class CreateCreditCardPaymentRequest implements JsonSerializable
     /**
      * Encode this object to JSON
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $json = array();
         $json['installments']           = $this->installments;
