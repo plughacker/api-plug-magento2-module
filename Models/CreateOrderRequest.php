@@ -79,6 +79,11 @@ class CreateOrderRequest implements JsonSerializable
 
     public array $appInfo;
 
+    /**
+     * @var CreateFraudAnalysisRequest[]
+     */
+    public $fraudAnalysis;
+
     public function __construct()
     {
         switch (func_num_args()) {
@@ -112,6 +117,7 @@ class CreateOrderRequest implements JsonSerializable
         $json['paymentMethod'] = $this->paymentMethod;
         $json['paymentSource'] = $this->paymentSource;
         $json['appInfo'] = $this->appInfo;
+        $json['fraudAnalysis'] = $this->fraudAnalysis;
 
         return $json;
     }
