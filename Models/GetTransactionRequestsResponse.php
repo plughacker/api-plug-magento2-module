@@ -9,6 +9,7 @@ namespace PlugHacker\PlugAPILib\Models;
 
 use JsonSerializable;
 use PlugHacker\PlugAPILib\Utils\DateTimeHelper;
+use PlugHacker\PlugAPILib\Models\GetProviderErrorResponse;
 
 /**
  *Response object for getting the shipping data
@@ -109,24 +110,30 @@ class GetTransactionRequestsResponse implements JsonSerializable
     public $responseTs;
 
     /**
+     * @var GetProviderErrorResponse
+     */
+    public $providerError;
+
+    /**
      * Constructor to set initial or default values of member properties
      */
     public function __construct()
     {
         if (13 == func_num_args()) {
             $this->id = func_get_arg(0);
-            $this->createdAt  = func_get_arg(1);
-            $this->updatedAt  = func_get_arg(2);
-            $this->idempotencyKey  = func_get_arg(3);
-            $this->providerId  = func_get_arg(4);
-            $this->providerType  = func_get_arg(5);
-            $this->transactionId  = func_get_arg(6);
-            $this->amount  = func_get_arg(7);
-            $this->authorizationCode  = func_get_arg(8);
-            $this->authorizationNsu  = func_get_arg(9);
-            $this->requestStatus  = func_get_arg(10);
-            $this->requestType  = func_get_arg(11);
-            $this->responseTs  = func_get_arg(12);
+            $this->createdAt = func_get_arg(1);
+            $this->updatedAt = func_get_arg(2);
+            $this->idempotencyKey = func_get_arg(3);
+            $this->providerId = func_get_arg(4);
+            $this->providerType = func_get_arg(5);
+            $this->transactionId = func_get_arg(6);
+            $this->amount = func_get_arg(7);
+            $this->authorizationCode = func_get_arg(8);
+            $this->authorizationNsu = func_get_arg(9);
+            $this->requestStatus = func_get_arg(10);
+            $this->requestType = func_get_arg(11);
+            $this->responseTs = func_get_arg(12);
+            $this->providerError = func_get_arg(13);
         }
     }
 
@@ -136,19 +143,20 @@ class GetTransactionRequestsResponse implements JsonSerializable
     public function jsonSerialize(): mixed
     {
         $json = array();
-        $json['id']             = $this->id;
-        $json['createdAt']     = $this->createdAt;
-        $json['updatedAt']     = $this->updatedAt;
+        $json['id'] = $this->id;
+        $json['createdAt'] = $this->createdAt;
+        $json['updatedAt'] = $this->updatedAt;
         $json['idempotencyKey'] = $this->idempotencyKey;
-        $json['providerId']     = $this->providerId;
-        $json['providerType']   = $this->providerType;
-        $json['transactionId']  = $this->transactionId;
-        $json['amount']         = $this->amount;
-        $json['authorizationCode']  = $this->authorizationCode;
-        $json['authorizationNsu']   = $this->authorizationNsu;
-        $json['requestStatus']  = $this->requestStatus;
-        $json['requestType']    = $this->requestType;
-        $json['responseTs']     = $this->responseTs;
+        $json['providerId'] = $this->providerId;
+        $json['providerType'] = $this->providerType;
+        $json['transactionId'] = $this->transactionId;
+        $json['amount'] = $this->amount;
+        $json['authorizationCode'] = $this->authorizationCode;
+        $json['authorizationNsu'] = $this->authorizationNsu;
+        $json['requestStatus'] = $this->requestStatus;
+        $json['requestType'] = $this->requestType;
+        $json['responseTs'] = $this->responseTs;
+        $json['providerError'] = $this->providerError;
 
         return $json;
     }
