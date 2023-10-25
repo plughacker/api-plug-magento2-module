@@ -15,7 +15,7 @@ class CreateFraudAnalysisCustomerBrowserRequest implements JsonSerializable
 
     public function jsonSerialize(): mixed
     {
-        $json = array();
+        $json = [];
         $json['browserFingerprint'] = $this->browserFingerprint;
         $json['cookiesAccepted'] = true;
         $json['email'] = $this->email;
