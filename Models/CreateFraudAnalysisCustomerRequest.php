@@ -13,6 +13,17 @@ class CreateFraudAnalysisCustomerRequest implements JsonSerializable
     public string $identityType;
     public string $identity;
     public string $registrationDate;
+
+    /**
+     * @var CreateFraudAnalysisCustomerBillingAddressRequest[]
+     */
+    public $billingAddress;
+
+    /**
+     * @var CreateFraudAnalysisCustomerDeliveryAddressRequest[]
+     */
+    public $deliveryAddress;
+
     /**
      * @var CreateFraudAnalysisCustomerBrowserRequest[]
      */
@@ -27,6 +38,8 @@ class CreateFraudAnalysisCustomerRequest implements JsonSerializable
         $json['identityType'] = $this->identityType;
         $json['identity'] = $this->identity;
         $json['registrationDate'] = $this->registrationDate;
+        $json['billingAddress'] = $this->billingAddress;
+        $json['deliveryAddress'] = $this->deliveryAddress;
         $json['browser'] = $this->browser;
 
         return $json;
