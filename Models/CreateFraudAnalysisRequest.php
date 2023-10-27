@@ -12,10 +12,16 @@ class CreateFraudAnalysisRequest implements JsonSerializable
      */
     public $customer;
 
+    /**
+     * @var CreateFraudAnalysisCartRequest[]
+     */
+    public $cart;
+
     public function jsonSerialize(): mixed
     {
-        $json = array();
+        $json = [];
         $json['customer'] = $this->customer;
+        $json['cart'] = $this->cart;
 
         return $json;
     }
