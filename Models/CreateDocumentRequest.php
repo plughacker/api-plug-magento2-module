@@ -51,7 +51,7 @@ class CreateDocumentRequest implements JsonSerializable
     /**
      * Encode this object to JSON
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $json = array();
         $json['number'] = $this->number;

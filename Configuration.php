@@ -17,13 +17,13 @@ class Configuration
      * The base Uri for API calls
      * @var string
      */
-    public static $BASEURI = 'https://api.plugpagamentos.com/v1';
+    public static $BASEURI = 'https://api.malga.io/v1';
 
     /**
      * The base Uri for API calls
      * @var string
      */
-    public static $TEST_BASEURI = 'https://sandbox-api.plugpagamentos.com/v1';
+    public static $TEST_BASEURI = 'https://sandbox-api.malga.io/v1';
 
 
     /**

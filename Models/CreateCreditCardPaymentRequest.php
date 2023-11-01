@@ -114,6 +114,11 @@ class CreateCreditCardPaymentRequest implements JsonSerializable
     public $paymentMethod;
 
     /**
+     * @var CreateFraudAnalysisRequest[]
+     */
+    public $fraudAnalysis;
+
+    /**
      * Payment source data
      * @required
      * @var \PlugHacker\PlugAPILib\Models\CreatePaymentSourceRequest[] $paymentSource public property
@@ -175,25 +180,25 @@ class CreateCreditCardPaymentRequest implements JsonSerializable
     /**
      * Encode this object to JSON
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $json = array();
-        $json['installments']           = $this->installments;
-        $json['statement_descriptor']   = $this->statementDescriptor;
-        $json['card']                   = $this->card;
-        $json['card_id']                = $this->cardId;
-        $json['cardId']                 = $this->cardId;
-        $json['recurrence']             = $this->recurrence;
-        $json['capture']                = $this->capture;
+        $json['installments'] = $this->installments;
+        $json['statement_descriptor'] = $this->statementDescriptor;
+        $json['card'] = $this->card;
+        $json['card_id'] = $this->cardId;
+        $json['cardId'] = $this->cardId;
+        $json['recurrence'] = $this->recurrence;
+        $json['capture'] = $this->capture;
         $json['extended_limit_enabled'] = $this->extendedLimitEnabled;
-        $json['extended_limit_code']    = $this->extendedLimitCode;
+        $json['extended_limit_code'] = $this->extendedLimitCode;
         $json['merchant_category_code'] = $this->merchantCategoryCode;
-        $json['authentication']         = $this->authentication;
-        $json['contactless']            = $this->contactless;
-        $json['auto_recovery']          = $this->autoRecovery;
-        $json['operation_type']         = $this->operationType;
-        $json['payment_method']         = $this->paymentMethod;
-        $json['payment_source']         = $this->paymentSource;
+        $json['authentication'] = $this->authentication;
+        $json['contactless'] = $this->contactless;
+        $json['auto_recovery'] = $this->autoRecovery;
+        $json['operation_type'] = $this->operationType;
+        $json['payment_method'] = $this->paymentMethod;
+        $json['payment_source'] = $this->paymentSource;
 
         return $json;
     }
