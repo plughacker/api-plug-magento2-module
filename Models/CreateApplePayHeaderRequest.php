@@ -55,7 +55,7 @@ class CreateApplePayHeaderRequest implements JsonSerializable
     /**
      * Encode this object to JSON
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $json = array();
         $json['client_id_hash']      = $this->clientIdHash;

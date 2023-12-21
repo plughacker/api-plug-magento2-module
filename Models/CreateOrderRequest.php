@@ -77,6 +77,13 @@ class CreateOrderRequest implements JsonSerializable
      */
     public $metadata;
 
+    public array $appInfo;
+
+    /**
+     * @var CreateFraudAnalysisRequest[]
+     */
+    public $fraudAnalysis;
+
     public function __construct()
     {
         switch (func_num_args()) {
@@ -99,16 +106,18 @@ class CreateOrderRequest implements JsonSerializable
     /**
      * Encode this object to JSON
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $json = array();
-        $json['merchantId']             = $this->merchantId;
-        $json['orderId']                = $this->orderId;
-        $json['amount']                 = $this->amount;
-        $json['statementDescriptor']    = $this->statementDescriptor;
-        $json['capture']                = $this->capture;
-        $json['paymentMethod']          = $this->paymentMethod;
-        $json['paymentSource']          = $this->paymentSource;
+        $json['merchantId'] = $this->merchantId;
+        $json['orderId'] = $this->orderId;
+        $json['amount'] = $this->amount;
+        $json['statementDescriptor'] = $this->statementDescriptor;
+        $json['capture'] = $this->capture;
+        $json['paymentMethod'] = $this->paymentMethod;
+        $json['paymentSource'] = $this->paymentSource;
+        $json['appInfo'] = $this->appInfo;
+        $json['fraudAnalysis'] = $this->fraudAnalysis;
 
         return $json;
     }

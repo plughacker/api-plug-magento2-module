@@ -63,7 +63,7 @@ class OrdersController extends BaseController
         ));
 
         //validate and preprocess url
-        $_queryUrl = APIHelper::cleanUrl($this->getBaseUrl() . $_queryBuilder);
+        $_queryUrl = APIHelper::cleanUrl(Configuration::$BASEURI . $_queryBuilder);
 
         //prepare headers
         $_headers = array (
